@@ -1,5 +1,26 @@
 ---
 import '../styles/global.css'
+
+// Define las props para los meta tags SEO
+interface Props {
+	title?: string
+	description?: string
+	keywords?: string
+	image?: string
+	canonicalURL?: string
+}
+
+// Valores por defecto
+const {
+	title = 'Reseñas de Lugares',
+	description = 'Descubre y comparte reseñas de los mejores lugares de tu ciudad',
+	keywords = 'reseñas, lugares, turismo, viajes',
+	image = '/og-image.jpg',
+	canonicalURL = Astro.url.href
+} = Astro.props
+
+// URL absoluta para la imagen
+const ogImageURL = new URL(image, Astro.url.origin).href
 ---
 
 <html lang='es'>
@@ -8,7 +29,29 @@ import '../styles/global.css'
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
-		<title>Astro</title>
+
+		<!-- Meta tags básicos SEO -->
+		<title>{title}</title>
+		<meta name='description' content={description} />
+		<meta name='keywords' content={keywords} />
+		<link rel='canonical' href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property='og:type' content='website' />
+		<meta property='og:url' content={Astro.url.href} />
+		<meta property='og:title' content={title} />
+		<meta property='og:description' content={description} />
+		<meta property='og:image' content={ogImageURL} />
+
+		<!-- Twitter -->
+		<meta property='twitter:card' content='summary_large_image' />
+		<meta property='twitter:url' content={Astro.url.href} />
+		<meta property='twitter:title' content={title} />
+		<meta property='twitter:description' content={description} />
+		<meta property='twitter:image' content={ogImageURL} />
+
+		<!-- Robots -->
+		<meta name='robots' content='index, follow' />
 	</head>
 	<body class='bg-gray-200'>
 		<main class='@container m-auto max-w-5xl px-5 mt-20'>

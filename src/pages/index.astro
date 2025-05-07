@@ -9,7 +9,12 @@ const { data: places = [], error } = await Astro.callAction(
 )
 ---
 
-<MainLayout>
+<MainLayout
+	title='Restaurante El Mirador - Las mejores vistas de la ciudad'
+	description='Disfruta de una experiencia gastronómica única con vistas panorámicas en el Restaurante El Mirador'
+	keywords='restaurante, comida gourmet, vistas, panorámica'
+	image='/images/el-mirador.jpg'
+>
 	<h1 class='text-3xl font-extrabold mb-5'>Lugares</h1>
 
 	<div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10'>

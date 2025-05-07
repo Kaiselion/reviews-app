@@ -31,9 +31,9 @@ const imageUrl = `/assets/images/${place.image}`
 ---
 
 <MainLayout>
-	<div class='grid grid-cols-2 gap-2'>
+	<div class='grid grid-cols-1 sm:grid-cols-2 gap-2'>
 		<div class='bg-white/80 p-5 rounded-xl'>
-			<h1 class='text-2xl font-extrabold'># {id} {place.title}</h1>
+			<h1 class='text-2xl font-extrabold mb-2'># {id} {place.title}</h1>
 			<p>{place.description}</p>
 
 			<div class='flex flex-1'>

@@ -12,7 +12,7 @@ const { data: places = [], error } = await Astro.callAction(
 <MainLayout>
 	<h1 class='text-3xl font-extrabold mb-5'>Lugares</h1>
 
-	<div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
+	<div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10'>
 		{places.map((place) => <PlaceCard place={place} />)}
 
 		<!-- <PlaceCard /> -->
